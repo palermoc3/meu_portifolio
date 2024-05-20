@@ -2,6 +2,7 @@ databases:
   - name: portifolio
     databaseName: portifolio
     user: palermoc
+    plan: free
 
 services:
   - type: web
