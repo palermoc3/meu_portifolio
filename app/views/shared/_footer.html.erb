@@ -1,0 +1,37 @@
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center mt-3 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <%= image_tag(@current_store.logo) if @current_store.logo.attached? %>
+      <span class="mb-md-0 text-body-secondary mx-3 mt-4">© <%= @current_store.created_at.year %> Company, Inc</span>
+    </div>
+
+    <ul class="nav justify-content-center border-bottom pb-3 my-3">
+      <li class="nav-item mt-3 ms-3"><%= link_to "Página Principal", products_path, class: "nav-link px-2 text-body-secondary" %></li>
+      <li class="nav-item mt-3 ms-3"><%= link_to "Sobre", abouts_path, class: "nav-link px-2 text-body-secondary" %></li>
+    </ul>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <% if @current_store.facebook? %>
+        <li class="ms-3">
+          <a href="<%= @current_store.facebook %>" target="_blank">
+            <i class="bi bi-facebook" style="font-size: 2rem; color: lightgray;"></i>
+          </a>
+        </li>
+      <% end %>
+      <% if @current_store.instagram? %>
+        <li class="ms-3">
+          <a href="<%= @current_store.instagram %>" target="_blank">
+            <i class="bi bi-instagram" style="font-size: 2rem; color: lightgray;"></i>
+          </a>
+        </li>
+      <% end %>
+      <% if @current_store.twitter? %>
+        <li class="ms-3">
+          <a href="<%= @current_store.twitter %>" target="_blank">
+            <i class="bi bi-twitter" style="font-size: 2rem; color: lightgray;"></i>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </footer>
+</div>
