@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ctps: MyString
+  salary_base: 1.5
+  hours: 1
+  commission_percent: 1.5
+  user: one
+
+two:
+  ctps: MyString
+  salary_base: 1.5
+  hours: 1
+  commission_percent: 1.5
+  user: two

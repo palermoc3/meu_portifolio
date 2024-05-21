@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: 1
+  theme: 1
+  payroll_day: 1
+  administrator: one
+  name: MyString
+  facebook: MyString
+  instagram: MyString
+  twitter: MyString
+
+two:
+  kind: 1
+  theme: 1
+  payroll_day: 1
+  administrator: two
+  name: MyString
+  facebook: MyString
+  instagram: MyString
+  twitter: MyString

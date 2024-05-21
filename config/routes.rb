@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :stores
+  resources :item_purchases
+  resources :purchases
+  resources :payrolls
+  resources :employees
+  resources :administrators
+  devise_for :users
+  resources :products
+  resources :categories
   resources :departments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

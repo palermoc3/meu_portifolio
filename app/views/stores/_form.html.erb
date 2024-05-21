@@ -1,0 +1,57 @@
+<%= form_with(model: store) do |form| %>
+  <% if store.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+        <% store.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :kind, style: "display: block" %>
+    <%= form.number_field :kind %>
+  </div>
+
+  <div>
+    <%= form.label :theme, style: "display: block" %>
+    <%= form.number_field :theme %>
+  </div>
+
+  <div>
+    <%= form.label :payroll_day, style: "display: block" %>
+    <%= form.number_field :payroll_day %>
+  </div>
+
+  <div>
+    <%= form.label :administrator_id, style: "display: block" %>
+    <%= form.text_field :administrator_id %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :facebook, style: "display: block" %>
+    <%= form.text_field :facebook %>
+  </div>
+
+  <div>
+    <%= form.label :instagram, style: "display: block" %>
+    <%= form.text_field :instagram %>
+  </div>
+
+  <div>
+    <%= form.label :twitter, style: "display: block" %>
+    <%= form.text_field :twitter %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

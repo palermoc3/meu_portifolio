@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_of_payroll: 2024-05-20
+  commission: 1.5
+  discount: 1.5
+  salary: 1.5
+  description: MyString
+  employee: one
+
+two:
+  date_of_payroll: 2024-05-20
+  commission: 1.5
+  discount: 1.5
+  salary: 1.5
+  description: MyString
+  employee: two

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  price: 1.5
+  paid: false
+  packageSize: 1.5
+  receive: false
+  closed: false
+
+two:
+  user: two
+  price: 1.5
+  paid: false
+  packageSize: 1.5
+  receive: false
+  closed: false
