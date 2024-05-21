@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   resources :employees
   resources :administrators
   devise_for :users
-  resources :products
+  resources :products do
+    post 'comprar', on: :member
+    collection do
+      get 'search'
+      get 'table'
+    end
+  end
   resources :categories
   resources :departments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

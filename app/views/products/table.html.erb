@@ -1,0 +1,45 @@
+<p style="color: green; text-align: center;"><%= notice %></p>
+<p style="color: red; text-align: center;"><%= alert %></p>
+<h1 class="text-center">Produtos</h1>
+<div style="margin-left: 10%; margin-right: 10%;">
+
+  <table class="table table-striped align-middle text-center border border-primary rounded p-3 my-5">
+    <thead>
+      <tr>
+        <th scope="col" class="text-start text-center align-middle pe-4">ID</th>
+        <th scope="col" class="text-start text-center align-middle pe-4">Nome</th>
+        <th scope="col" class="text-start text-center align-middle pe-4">Peso</th>
+        <th scope="col" class="text-start text-center align-middle pe-4">Largura</th>
+        <th scope="col" class="text-start text-center align-middle pe-4">Comprimento</th>
+        <th scope="col" class="text-start text-center align-middle pe-4">Valor de Venda</th>
+        <th scope="col" class="text-start text-center align-middle pe-4">Quantidade</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <th scope="row" class="text-start text-center align-middle pe-4"><%= product.id %></th>
+          <td class="text-start text-center align-middle pe-4"><%= product.name %></td>
+          <td><%= product.weight %></td>
+          <td><%= product.width %></td>
+          <td><%= product.length %></td>
+          <td><%= product.valueSell %></td>
+          <td><%= product.quantity %></td>
+          <td class="text-end align-middle">
+            <div class="d-flex justify-content-end">
+              <%= link_to "Ver item", product, class: "btn btn-primary me-2" %>
+              <%= link_to "Editar item", edit_product_path(product), class: "btn btn-dark me-2" %>
+              <%= button_to "Deletar item", product, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center align-items-center custom-pagination">
+    <%= paginate @products, outer_window: 2, inner_window: 2 %>
+  </div>
+
+  <%= link_to "Novo produto", new_product_path, class: "btn btn-primary btn-block mt-5" %>
+</div>
