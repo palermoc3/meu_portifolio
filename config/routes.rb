@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :administrators, except: [:destroy]
   resources :payments, only: %i[new create]
 
-
   devise_for :users
 
   devise_scope :user do
@@ -52,5 +51,4 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
-
 end

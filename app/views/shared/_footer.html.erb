@@ -1,7 +1,11 @@
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center mt-3 border-top">
     <div class="col-md-4 d-flex align-items-center">
-      <%= image_tag(@current_store.logo) if @current_store.logo.attached? %>
+            <svg class="bd-placeholder-img w-auto mr-2 rotate" width="72" height="48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sem foto" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Logo</title>
+          <rect width="100%" height="100%" fill="#55595c"></rect>
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em" text-anchor="middle" alignment-baseline="middle">Logo</text>
+      </svg>
       <span class="mb-md-0 text-body-secondary mx-3 mt-4">© <%= @current_store.created_at.year %> Company, Inc</span>
     </div>
 

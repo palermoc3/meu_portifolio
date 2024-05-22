@@ -7,11 +7,11 @@
     <%= f.hidden_field :amount, value: ((@price.to_f)*100).to_i %>
     <%= f.hidden_field :description, value: @purchase.item_purchases.map { |item_purchase| item_purchase.product.name }.join('\n ') %>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" 
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
       data-description="<%= @purchase.item_purchases.map { |item_purchase| item_purchase.product.name }.join('\n ') %>"
-      data-amount="<%= ((@price.to_f)*100).to_i %>" 
-      data-currency="brl" 
+      data-amount="<%= ((@price.to_f)*100).to_i %>"
+      data-currency="brl"
       data-locale="pt"
       data-email="<%= current_user.email %>">
     </script>
