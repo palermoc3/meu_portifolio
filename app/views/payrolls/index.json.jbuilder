@@ -1,1 +1,1 @@
-json.array! @payrolls, partial: "payrolls/payroll", as: :payroll
+json.array! @payrolls, partial: 'payrolls/payroll', as: :payroll

@@ -1,5 +1,5 @@
 class AdministratorsController < ApplicationController
-  before_action :set_administrator, only: %i[ show edit update destroy ]
+  before_action :set_administrator, only: %i[show edit update destroy]
 
   # GET /administrators or /administrators.json
   def index
@@ -7,8 +7,7 @@ class AdministratorsController < ApplicationController
   end
 
   # GET /administrators/1 or /administrators/1.json
-  def show
-  end
+  def show; end
 
   # GET /administrators/new
   def new
@@ -16,8 +15,7 @@ class AdministratorsController < ApplicationController
   end
 
   # GET /administrators/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /administrators or /administrators.json
   def create
@@ -25,7 +23,7 @@ class AdministratorsController < ApplicationController
 
     respond_to do |format|
       if @administrator.save
-        format.html { redirect_to administrator_url(@administrator), notice: "Administrator was successfully created." }
+        format.html { redirect_to administrator_url(@administrator), notice: 'Administrator was successfully created.' }
         format.json { render :show, status: :created, location: @administrator }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class AdministratorsController < ApplicationController
   def update
     respond_to do |format|
       if @administrator.update(administrator_params)
-        format.html { redirect_to administrator_url(@administrator), notice: "Administrator was successfully updated." }
+        format.html { redirect_to administrator_url(@administrator), notice: 'Administrator was successfully updated.' }
         format.json { render :show, status: :ok, location: @administrator }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,24 +45,15 @@ class AdministratorsController < ApplicationController
     end
   end
 
-  # DELETE /administrators/1 or /administrators/1.json
-  def destroy
-    @administrator.destroy!
+  private
 
-    respond_to do |format|
-      format.html { redirect_to administrators_url, notice: "Administrator was successfully destroyed." }
-      format.json { head :no_content }
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_administrator
+    @administrator = Administrator.find(params[:id])
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_administrator
-      @administrator = Administrator.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def administrator_params
-      params.require(:administrator).permit(:cnpj, :user_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def administrator_params
+    params.require(:administrator).permit(:cnpj, :user_id)
+  end
 end

@@ -1,9 +1,35 @@
 <h1>New department</h1>
 
-<%= render "form", department: @department %>
+<div class="container mt-5">
+  <div style="margin: 0 15%;"> <!-- Adiciona a div que põe uma margem de 15% para cada lado -->
+    <h1 class="mb-4">Editing department</h1>
+    <%= form_with(model: @department) do |form| %>
+      <% if @department.errors.any? %>
+        <div class="alert alert-danger">
+          <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
 
-<br>
+          <ul>
+            <% @department.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<div>
-  <%= link_to "Back to departments", departments_path %>
+      <div class="form-group mt-5">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control mt-3" %>
+      </div>
+
+      <div class="form-group my-5">
+        <%= form.submit class: "btn btn-success" %>
+      </div>
+    <% end %>
+
+    <div class="col-md-12 mt-4">
+      <div class="d-inline-block ">
+        <%= link_to "Back to departments", departments_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>

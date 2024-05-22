@@ -1,1 +1,1 @@
-json.array! @abouts, partial: "abouts/about", as: :about
+json.array! @abouts, partial: 'abouts/about', as: :about

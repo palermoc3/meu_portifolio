@@ -1,5 +1,5 @@
 class AboutsController < ApplicationController
-  before_action :set_about, only: %i[ show edit update destroy ]
+  before_action :set_about, only: %i[show edit update destroy]
 
   # GET /abouts or /abouts.json
   def index
@@ -7,8 +7,7 @@ class AboutsController < ApplicationController
   end
 
   # GET /abouts/1 or /abouts/1.json
-  def show
-  end
+  def show; end
 
   # GET /abouts/new
   def new
@@ -16,8 +15,7 @@ class AboutsController < ApplicationController
   end
 
   # GET /abouts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /abouts or /abouts.json
   def create
@@ -25,7 +23,7 @@ class AboutsController < ApplicationController
 
     respond_to do |format|
       if @about.save
-        format.html { redirect_to about_url(@about), notice: "About was successfully created." }
+        format.html { redirect_to about_url(@about), notice: 'About was successfully created.' }
         format.json { render :show, status: :created, location: @about }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class AboutsController < ApplicationController
   def update
     respond_to do |format|
       if @about.update(about_params)
-        format.html { redirect_to about_url(@about), notice: "About was successfully updated." }
+        format.html { redirect_to about_url(@about), notice: 'About was successfully updated.' }
         format.json { render :show, status: :ok, location: @about }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class AboutsController < ApplicationController
     @about.destroy!
 
     respond_to do |format|
-      format.html { redirect_to abouts_url, notice: "About was successfully destroyed." }
+      format.html { redirect_to abouts_url, notice: 'About was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_about
-      @about = About.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def about_params
-      params.require(:about).permit(:title, :about_text, :store_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_about
+    @about = About.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def about_params
+    params.require(:about).permit(:about_text, :store_id)
+  end
 end

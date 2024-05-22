@@ -1,1 +1,1 @@
-json.partial! "payrolls/payroll", payroll: @payroll
+json.partial! 'payrolls/payroll', payroll: @payroll

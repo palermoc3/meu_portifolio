@@ -1,5 +1,5 @@
 class PayrollsController < ApplicationController
-  before_action :set_payroll, only: %i[ show edit update destroy ]
+  before_action :set_payroll, only: %i[show edit update destroy]
 
   # GET /payrolls or /payrolls.json
   def index
@@ -7,8 +7,7 @@ class PayrollsController < ApplicationController
   end
 
   # GET /payrolls/1 or /payrolls/1.json
-  def show
-  end
+  def show; end
 
   # GET /payrolls/new
   def new
@@ -16,8 +15,7 @@ class PayrollsController < ApplicationController
   end
 
   # GET /payrolls/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /payrolls or /payrolls.json
   def create
@@ -25,7 +23,7 @@ class PayrollsController < ApplicationController
 
     respond_to do |format|
       if @payroll.save
-        format.html { redirect_to payroll_url(@payroll), notice: "Payroll was successfully created." }
+        format.html { redirect_to payroll_url(@payroll), notice: 'Payroll was successfully created.' }
         format.json { render :show, status: :created, location: @payroll }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class PayrollsController < ApplicationController
   def update
     respond_to do |format|
       if @payroll.update(payroll_params)
-        format.html { redirect_to payroll_url(@payroll), notice: "Payroll was successfully updated." }
+        format.html { redirect_to payroll_url(@payroll), notice: 'Payroll was successfully updated.' }
         format.json { render :show, status: :ok, location: @payroll }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class PayrollsController < ApplicationController
     @payroll.destroy!
 
     respond_to do |format|
-      format.html { redirect_to payrolls_url, notice: "Payroll was successfully destroyed." }
+      format.html { redirect_to payrolls_url, notice: 'Payroll was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_payroll
-      @payroll = Payroll.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def payroll_params
-      params.require(:payroll).permit(:date_of_payroll, :commission, :discount, :salary, :description, :employee_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_payroll
+    @payroll = Payroll.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def payroll_params
+    params.require(:payroll).permit(:date_of_payroll, :commission, :discount, :salary, :description, :employee_id)
+  end
 end

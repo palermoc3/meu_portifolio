@@ -1,10 +1,31 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @department %>
-
-<div>
-  <%= link_to "Edit this department", edit_department_path(@department) %> |
-  <%= link_to "Back to departments", departments_path %>
-
-  <%= button_to "Destroy this department", @department, method: :delete %>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3 mt-5" style="margin-left: 10%; margin-right: 10%;">
+  <% @products.each do |product| %>
+    <div class="col">
+      <div class="card shadow-sm mb-3">
+        <%= link_to product, style: "text-decoration: none; color: inherit;" do %>
+        <% if product.photo1.attached? %>
+          <%= image_tag product.photo1, class: "img-fluid", style: "object-fit: cover; width: 100%; height: 225px;" %>
+        <% else %>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c"></rect>
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em" text-anchor="middle" alignment-baseline="middle">Sem foto</text>
+          </svg>
+        <% end %>
+        <div class="card-body">
+          <h6 class="mb-2"><%= product.name %></h6>
+          <p class="mb-1"><small><%= product.description %></small></p>
+          <p class="mb-1"><small><strong>R$<%= product.valueSell %></strong></small></p>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+  <div class="d-flex justify-content-center align-items-center custom-pagination screen pt-5">
+    <%= paginate @products, theme: 'bootstrap-5',
+                   pagination_class: "pagination-sm flex-wrap justify-content-center",
+                   nav_class: "d-inline-block" %>
+  </div>

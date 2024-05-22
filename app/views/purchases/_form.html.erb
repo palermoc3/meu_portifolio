@@ -26,6 +26,11 @@
     <%= form.check_box :paid %>
   </div>
 
+    <div>
+    <%= form.label :closed, style: "display: block" %>
+    <%= form.check_box :closed %>
+  </div>
+
   <div>
     <%= form.label :packageSize, style: "display: block" %>
     <%= form.text_field :packageSize %>
@@ -34,11 +39,6 @@
   <div>
     <%= form.label :receive, style: "display: block" %>
     <%= form.check_box :receive %>
-  </div>
-
-  <div>
-    <%= form.label :closed, style: "display: block" %>
-    <%= form.check_box :closed %>
   </div>
 
   <div>

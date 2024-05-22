@@ -1,1 +1,1 @@
-json.partial! "administrators/administrator", administrator: @administrator
+json.partial! 'administrators/administrator', administrator: @administrator

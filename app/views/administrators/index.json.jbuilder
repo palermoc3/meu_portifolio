@@ -1,1 +1,1 @@
-json.array! @administrators, partial: "administrators/administrator", as: :administrator
+json.array! @administrators, partial: 'administrators/administrator', as: :administrator

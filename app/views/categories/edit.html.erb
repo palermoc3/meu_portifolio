@@ -1,10 +1,32 @@
-<h1>Editing category</h1>
+<div class="container mt-5">
+  <div style="margin: 0 15%;"> <!-- Adiciona a div que põe uma margem de 15% para cada lado -->
+    <h1 class="mb-4">Editing category</h1>
+    <%= form_with(model: @category) do |form| %>
+      <% if @category.errors.any? %>
+        <div class="alert alert-danger mt-4">
+          <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-<%= render "form", category: @category %>
+          <ul>
+            <% @category.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<br>
+      <div class="form-group mt-4">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control mt-3" %>
+      </div>
 
-<div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
+      <div class="form-group mt-4">
+        <%= form.label :department_id %>
+        <%= form.collection_select(:department_id, Department.order(:name), :id, :name, { prompt: true }, { class: 'form-control select2 mt-3' }) %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= form.submit class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,1 +1,1 @@
-json.partial! "abouts/about", about: @about
+json.partial! 'abouts/about', about: @about

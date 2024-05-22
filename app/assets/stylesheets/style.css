@@ -1,0 +1,36 @@
+  .carousel-control-prev, .carousel-control-next {
+    top:150%;
+    transform: translateY(-50%);
+    color:red;
+  }
+
+  .multi-column {
+    columns: 2; /* Define o número de colunas */
+    column-gap: 10px; /* Define o espaçamento entre colunas */
+  }
+  
+  .ddn {
+    border-color:transparent;
+  }
+  body {
+    min-height: 100vh;
+  }
+
+#content{
+  min-height:63vh;
+}
+
+.containerhistory{
+  width: 40vw;
+}
+
+.purchase {
+  min-height:50vh; /* Defina a altura mínima como 60% da altura da tela */
+}
+
+.screen {
+  min-height:45vh; /* Defina a altura mínima como 60% da altura da tela */
+}
+.container{
+  margin-left: 10%;
+}

@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   resources :abouts
   resources :stores
-  resources :item_purchases
-  resources :purchases
   resources :payrolls
   resources :employees
-  resources :administrators
-  devise_for :users
+  resources :administrators, except: [:destroy]
+  resources :payments, only: %i[new create]
+
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  devise_scope :user do
+    get 'users/table', to: 'users/registrations#table', as: 'user_table'
+  end
+
   resources :products do
     post 'comprar', on: :member
     collection do
@@ -14,14 +20,37 @@ Rails.application.routes.draw do
       get 'table'
     end
   end
-  resources :categories
-  resources :departments
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  resources :purchases do
+    patch 'close', on: :member
+    collection do
+      get 'user_last_purchase'
+    end
+  end
 
-  # Defines the root path route ("/")
-  root "departments#index"
+  resources :departments do
+    collection do
+      get 'table'
+    end
+  end
+
+  resources :categories do
+    collection do
+      get 'table'
+    end
+  end
+
+  get 'up' => 'rails/health#show', as: :rails_health_check
+
+  delete '/item_purchases/:id', to: 'item_purchases#destroy', as: 'item_purchase'
+
+  resources :item_purchases do
+    member do
+      post 'growth'
+      post 'reduction'
+    end
+  end
+
+  root 'products#index'
+
 end

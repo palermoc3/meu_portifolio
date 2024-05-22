@@ -34,9 +34,12 @@
       <% end %>
     </tbody>
   </table>
+
   <div class="d-flex justify-content-center align-items-center custom-pagination">
-    <%= paginate @categories, outer_window: 2, inner_window: 2 %>
+          <%= paginate @categories, theme: 'bootstrap-5',
+                   pagination_class: "pagination-sm flex-wrap justify-content-center",
+                   nav_class: "d-inline-block" %>
   </div>
 
-  <%= link_to "New category", new_category_path, class: "btn btn-primary btn-block" %>
+  <%= link_to "Nova Categoria", new_category_path, class: "btn btn-primary btn-block" %>
 </div>
