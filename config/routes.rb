@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :payments, only: %i[new create]
 
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users
 
   devise_scope :user do
     get 'users/table', to: 'users/registrations#table', as: 'user_table'

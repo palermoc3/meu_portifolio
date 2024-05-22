@@ -29,8 +29,15 @@
 }
 
 .screen {
-  min-height:45vh; /* Defina a altura mínima como 60% da altura da tela */
+  min-height:45vh; 
 }
 .container{
   margin-left: 10%;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  /* padding: 15px; */
+  margin: auto;
 }
