@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
   describe 'GET #index' do
-    it 'retorna uma lista de produtos ordenada por quantidade decrescente' do
+    it 'returns a list of products ordered by descending quantity' do
       toys = Department.create!(name: 'Toys')
       fem = Category.create!(name: 'brinquedo fem', department_id: toys.id)
       product1 = Product.create!(
