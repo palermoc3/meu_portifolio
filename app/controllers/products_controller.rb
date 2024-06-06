@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
@@ -75,7 +77,7 @@ class ProductsController < ApplicationController
     if current_user
       @product = Product.find(params[:id])
       purchase = current_user.purchases.last || current_user.purchases.create
-      item_purchase = purchase.item_purchases.create(product: @product, quantity: 1)
+      purchase.item_purchases.create(product: @product, quantity: 1)
       redirect_to purchase_path(purchase), notice: 'Produto adicionado ao carrinho com sucesso!'
     else
       redirect_to new_user_session_path, alert: 'Por favor, faça login para continuar.'

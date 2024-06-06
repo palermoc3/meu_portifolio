@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/models/user_spec.rb
 
 require 'rails_helper'
@@ -13,5 +15,4 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
     expect(user.errors[:email]).to include('formato de e-mail inválido')
   end
-
 end

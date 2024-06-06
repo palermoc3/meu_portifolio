@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdministratorsController < ApplicationController
   before_action :set_administrator, only: %i[show edit update destroy]
 

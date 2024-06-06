@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Store < ApplicationRecord
   belongs_to :administrator
   has_one_attached :logo

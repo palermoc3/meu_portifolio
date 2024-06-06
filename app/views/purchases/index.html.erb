@@ -1,29 +1,29 @@
 <% @purchases.where(closed: true).each do |purchase| %>
- <%= link_to purchase, class: "text-dark link-underline-light" do %>
+  <%= link_to purchase, class: "text-dark link-underline-light" do %>
     <div class="d-flex py-3 my-5 border rounded container">
       <div class="col-5 px-5 mt-2">
         <small class="mt-2">
           <% names = purchase.item_purchases.map { |item_purchase| item_purchase.product.name } %>
-            <% names.each_with_index do |name, index| %>
-               <%= truncate(name, length: 40, separator: ' ') %>
-             <% unless index == names.size - 1 %>
-                <% unless name.length < 40 %>
-                    <%= ', ' unless index == names.size - 2 %>
-                  <% else %>
-                    <%= ', ' unless index == names.size - 1 %>
-                  <% end %>
-                <% end %>
+          <% names.each_with_index do |name, index| %>
+            <%= truncate(name, length: 40, separator: ' ') %>
+            <% unless index == names.size - 1 %>
+              <% unless name.length < 40 %>
+                <%= ', ' unless index == names.size - 2 %>
+              <% else %>
+                <%= ', ' unless index == names.size - 1 %>
               <% end %>
-            </small>
-          </div>
-          <div class="col-3 mt-3 row">
-            <h6 class="mb-0"><%= number_to_currency(purchase.price) %></h6>
-          </div>
-          <div class="col-4 d-flex justify-content-end">
-            <% purchase.item_purchases.each do |item_purchase| %>
-                <%= image_tag "placeholder_image.jpg", class: "bd-placeholder-img w-auto mr-2", width: "64", height: "64", preserveAspectRatio: "xMidYMid slice", alt: "Placeholder" %>
             <% end %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+          <% end %>
+        </small>
+      </div>
+      <div class="col-3 mt-3 row">
+        <h6 class="mb-0"><%= number_to_currency(purchase.price) %></h6>
+      </div>
+      <div class="col-4 d-flex justify-content-end">
+        <% purchase.item_purchases.each do |item_purchase| %>
+          <%= image_tag item_purchase.product.photo1, class: "bd-placeholder-img w-auto mr-2", width: "64", height: "64", preserveAspectRatio: "xMidYMid slice", alt: item_purchase.product.name %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

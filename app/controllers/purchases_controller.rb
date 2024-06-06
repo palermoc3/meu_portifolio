@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: %i[show edit update destroy]
 
@@ -50,7 +52,7 @@ class PurchasesController < ApplicationController
   def close
     @purchase = Purchase.find(params[:id])
     @purchase.update(closed: true)
-    new_purchase = current_user.purchases.create(
+    current_user.purchases.create(
       closed: false,
       paid: false,
       price: 0.00,

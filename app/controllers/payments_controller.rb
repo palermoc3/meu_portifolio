@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PaymentsController < ApplicationController
   def new
     @purchase = Purchase.find(params[:purchase_id])
@@ -13,13 +15,13 @@ class PaymentsController < ApplicationController
     # Convertendo o valor de params[:amount] para um número inteiro
     amount_in_cents = params[:amount].to_i
 
-    charge = Stripe::Charge.create({
-                                     customer: customer.id,
-                                     amount: amount_in_cents,
-                                     description: params[:description],
-                                     currency: 'brl'
-                                   })
-  rescue Stripe::CardError => e
+    Stripe::Charge.create({
+                            customer: customer.id,
+                            amount: amount_in_cents,
+                            description: params[:description],
+                            currency: 'brl'
+                          })
+  rescue Stripe::CardError
     redirect_to new_payment_path
   end
 end

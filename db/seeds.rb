@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 employee = User.create!(
   name: 'Nome do Usuário',
   cpf: '12345678901',
@@ -31,7 +33,7 @@ Employee.all.each do |employee|
   (1..2).each do |month_ago|
     date = Date.today.prev_month(month_ago).beginning_of_month
     # Crie a lógica para gerar os payrolls para cada mês
-    payroll = Payroll.create(
+    Payroll.create(
       date_of_payroll: date,
       commission: 0,
       discount: 0,

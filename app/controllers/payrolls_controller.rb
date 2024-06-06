@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PayrollsController < ApplicationController
   before_action :set_payroll, only: %i[show edit update destroy]
 

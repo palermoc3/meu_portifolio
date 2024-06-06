@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ItemPurchasesController < ApplicationController
   def destroy
     item_purchase = ItemPurchase.find(params[:id])

@@ -1,0 +1,14 @@
+linters:
+  FinalNewline:
+    enabled: true
+  SpaceAroundErbTag:
+    enabled: true
+  RuboCop:
+    enabled: true
+    rubocop_config: '.rubocop.yml'
+  TrailingWhitespace:
+    enabled: true
+  ErbSafety:
+    enabled: true
+  ViewTemplateFilename:
+    enabled: true

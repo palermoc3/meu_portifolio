@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AboutsController < ApplicationController
   before_action :set_about, only: %i[show edit update destroy]
 

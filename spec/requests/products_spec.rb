@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
@@ -15,7 +17,7 @@ RSpec.describe ProductsController, type: :controller do
         valueSell: 23.99,
         valueBuy: 12.87,
         description: Faker::Lorem.sentence(word_count: 3),
-        category_id: fem.id,
+        category_id: fem.id
       )
 
       product2 = Product.create!(
@@ -28,12 +30,12 @@ RSpec.describe ProductsController, type: :controller do
         valueSell: 20.99,
         valueBuy: 15.99,
         description: Faker::Lorem.sentence(word_count: 3),
-        category_id: fem.id,
+        category_id: fem.id
       )
 
       get :index
 
-      expect(assigns(:products)).to eq([product2, product1]) 
+      expect(assigns(:products)).to eq([product2, product1])
       expect(response).to render_template(:index)
       expect(response).to have_http_status(:success)
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Devise Requests', type: :request do
@@ -32,7 +34,7 @@ RSpec.describe 'Devise Requests', type: :request do
 
       # Sign out
       get destroy_user_session_path
-      expect(response).to have_http_status(:see_other) 
+      expect(response).to have_http_status(:see_other)
       follow_redirect!
       puts "Redirected to: #{response.request.fullpath}"
       expect(response).to render_template(:index) # Ajuste conforme o comportamento esperado após o logout
@@ -40,6 +42,3 @@ RSpec.describe 'Devise Requests', type: :request do
     end
   end
 end
-
-
-

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :abouts
   resources :stores
   resources :payrolls
   resources :employees
   resources :administrators, except: [:destroy]
-  resources :payments, only: [:new, :create]
+  resources :payments, only: %i[new create]
 
   devise_for :users
 

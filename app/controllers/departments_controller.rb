@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DepartmentsController < ApplicationController
   before_action :set_department, only: %i[show edit update destroy]
   rescue_from ArgumentError, with: :handle_argument_error
