@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :payrolls
   resources :employees
   resources :administrators, except: [:destroy]
-  resources :payments, only: %i[new create]
+  resources :payments, only: [:new, :create]
 
   devise_for :users
 

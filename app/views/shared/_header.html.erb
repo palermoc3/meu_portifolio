@@ -86,11 +86,19 @@
       <div class="col">
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-color:transparent;">
-            <%= t("department_names.#{top_department.name}", default: top_department.name) %>
+            <% if @top_department %>
+              <%= t("department_names.#{@top_department.name}", default: @top_department.name) %>
+            <% else %>
+              <p>No department available</p>
+            <% end %>
           </button>
           <ul class="dropdown-menu">
-            <% top_department.categories.each do |category| %>
-              <li><%= link_to category.name, category_path(category), class: "dropdown-item" %></li>
+            <% if top_department&.categories&.any? %>
+              <% top_department.categories.each do |category| %>
+                <li><%= link_to category.name, category_path(category), class: "dropdown-item" %></li>
+              <% end %>
+            <% else %>
+              <p>No categories available.</p>
             <% end %>
           </ul>
         </div>
