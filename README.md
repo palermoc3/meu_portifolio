@@ -73,6 +73,10 @@ cd meu_portifolio
 - **FactoryBot**: Para criação de objetos de teste.
 - **Faker**: Para geração de dados fictícios em testes.
 
+## Assista a exibição do Portifólio
+[Assista ao vídeo aqui](https://youtu.be/LSvSzZZag3Y)
+
+
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
